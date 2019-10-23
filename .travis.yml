@@ -1,10 +1,14 @@
 language: scala
+jdk:
+  - openjdk8
 env:
   global:
   - BINTRAY_REALM=Bintray API Realm
   - BINTRAY_HOST=api.bintray.com
   - BINTRAY_USER=rehei
   - secure: ekNP1JEoHOyZl05HnFSGbw+7sUQBNh2pVKJJv84qkkgCaWPNdkAcFpodBEj7aNK3uGceNtySXWwqloIdHfjIqimc0HKiEsE3HvC3hd42zvwWgdFjl5CK4csl3VhFM9QhafMZ+PpE/jlkp8bNvpB7Dg4bjNB/s5/TklYK8WaorOEchWnqQl1sbR4pWy22kSV9xa2sOYILhu8ovrpZ18XnmE2AVJSdhc2CKHrarrJbEvYYjJhsPbWgGbz29woJd4W5q6JVlZw4+KPcZmqRMhMtVL9LOAoL1LQ5g5jU9DXUyiG2FzgKpdb7J9hnz1l2yz/Omae8E3sbWhEH7NPeHoLwwFCTtHaSNSY4pbmc5VJfy8c/LQx9kbucux+2ec1NEwMxKFZQL6DdhHQLQjw8gKu0Si2PJ0ePMM08yKWRXNJlxa0DPr9SAWnoHipSunSTKn2GR79HVW0Sb49bi8jq3b8OU3f19uAIUaoZyPhltiDpX68AIMCT+9Il1tGVewujJfpBKTWoFR61P+gbw8L8WKWehvXd07Nql0J8W+PbKEVBtIT5A53Yor2tXEMz1CIv94Y4A0tdOVOTOGdKsGrhZZJFh7VGJ4svnDFS3gnGVfneFW1MIbnyanXWuT5EKHTDGy4lLlwBnJvBHc57IXWZmUmFrS1qBDNsyvLLxaXUQ2BiWiQ=
+script:
+- ./sbt -Dtag=${TRAVIS_TAG} +package
 deploy:
 - provider: releases
   skip_cleanup: true
