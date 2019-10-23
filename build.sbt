@@ -17,6 +17,7 @@ licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 
 libraryDependencies ++= {
   Seq(
+    "org.scala-lang" % "scala-reflect" % scalaVersion.value
   )
 }
 
