@@ -15,8 +15,8 @@ trait ConfigSupport {
     copy
   }
 
-  protected def getDecorator[T <: AnyRef](implicit tag: TypeTag[T]): Option[T] = {
-    decorators.get(tag.tpe).map { _.asInstanceOf[T] }
+  protected def get[T <: AnyRef](implicit tag: TypeTag[T]): Config[T] = {
+    new Config(decorators.get(tag.tpe).map(_.asInstanceOf[T]))
   }
 
   private def injectDecorators(injectable: Map[Type, AnyRef]) {
